@@ -6,13 +6,13 @@ import br.com.fiap.CP5.dto.request.ItemRequest;
 import br.com.fiap.CP5.dto.response.ItemResponse;
 import br.com.fiap.CP5.service.ItemService;
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 @RequestMapping("/itens")
@@ -24,6 +24,7 @@ public class ItemControllerView {
         this.itemService = itemService;
     }
 
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping
     public String listar(Model model,
                          @ModelAttribute("mensagem") String mensagem,
@@ -34,6 +35,7 @@ public class ItemControllerView {
         return "item/listar";
     }
 
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping("/novo")
     public String formNovo(Model model) {
         model.addAttribute("item", new ItemRequest());
@@ -42,6 +44,7 @@ public class ItemControllerView {
         return "item/adicionar";
     }
 
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PostMapping
     public String criar(@Valid @ModelAttribute("item") ItemRequest request,
                         BindingResult result,
@@ -65,9 +68,9 @@ public class ItemControllerView {
         ra.addFlashAttribute("mensagem", "Item cadastrado com sucesso (ID: " + salvo.getIdItem() + ").");
         return "redirect:/itens";
     }
-
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/{id}")
-    public String detalhes(@PathVariable UUID id, Model model, RedirectAttributes ra) {
+    public String detalhes(@PathVariable String id, Model model, RedirectAttributes ra) {
         try {
             Item item = itemService.obterItemPorId(id);
             model.addAttribute("item", item);
@@ -78,8 +81,9 @@ public class ItemControllerView {
         }
     }
 
-    @GetMapping("/{id}/editar")
-    public String formEditar(@PathVariable UUID id, Model model, RedirectAttributes ra) {
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @GetMapping("/editar/{id}")
+    public String formEditar(@PathVariable String id, Model model, RedirectAttributes ra) {
         try {
             Item item = itemService.obterItemPorId(id);
             ItemRequest form = new ItemRequest(
@@ -100,8 +104,9 @@ public class ItemControllerView {
         }
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping("/{id}")
-    public String atualizar(@PathVariable UUID id,
+    public String atualizar(@PathVariable String id,
                             @Valid @ModelAttribute("item") ItemRequest request,
                             BindingResult result,
                             RedirectAttributes ra,
@@ -122,11 +127,12 @@ public class ItemControllerView {
         }
     }
 
-    @PostMapping("/{id}/excluir")
-    public String excluir(@PathVariable UUID id, RedirectAttributes ra) {
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PostMapping("/excluir/{id}")
+    public String excluir(@PathVariable String id, RedirectAttributes ra) {
         try {
             itemService.deletarItemPorId(id);
-            ra.addFlashAttribute("mensagem", "Item excluído com sucesso.");
+            ra.addFlashAttribute("sucesso", "Item excluído com sucesso");
         } catch (ItemNaoEncontradoException e) {
             ra.addFlashAttribute("erro", e.getMessage());
         }
