@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>403 — Acesso negado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" th:href="@{/css/erros.css}" href="/css/erros.css" />
+</head>
+<body>
+<main class="wrap">
+  <section class="card">
+    <h1 class="code">403</h1>
+    <h2>Acesso negado</h2>
+    <p>Você não tem permissão para acessar este recurso.</p>
+    <div class="actions">
+      <a class="btn" href="javascript:history.back()">Voltar</a>
+      <a class="btn primary" th:href="@{/itens}" href="/itens">Home</a>
+    </div>
+  </section>
+</main>
+</body>
+</html>
