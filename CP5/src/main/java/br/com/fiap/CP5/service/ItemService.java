@@ -1,6 +1,6 @@
 package br.com.fiap.CP5.service;
 
-import br.com.fiap.CP5.ItemNaoEncontradoException;
+import br.com.fiap.CP5.exception.ItemNaoEncontradoException;
 import br.com.fiap.CP5.dto.request.ItemRequest;
 import br.com.fiap.CP5.dto.response.ItemResponse;
 import br.com.fiap.CP5.entity.Item;
@@ -50,11 +50,11 @@ public class ItemService {
         }
     }
 
-    public Item obterItemPorId(UUID id) {
+    public Item obterItemPorId(String id) {
         return repository.findById(id).orElseThrow(() -> new ItemNaoEncontradoException("Item não encontrado com o ID: " + id));
     }
 
-    public void deletarItemPorId(UUID id) {
+    public void deletarItemPorId(String id) {
         if (!repository.existsById(id)) {
             throw new ItemNaoEncontradoException("Item não encontrado com o ID: " + id);
         }
@@ -62,7 +62,7 @@ public class ItemService {
     }
 
     @Transactional
-    public void atualizarItem(UUID id, ItemRequest itemAtualizado) {
+    public Item atualizarItem(String id, ItemRequest itemAtualizado) {
 
         Item itemExistente = obterItemPorId(id);
 
@@ -85,5 +85,6 @@ public class ItemService {
                 + itemExistente.getNomeItem() + " " + itemExistente.getTipoItem() + ", "
                 + itemExistente.getClassificacaoItem() + ", " + itemExistente.getTamanhoItem() + ", "
                 + itemExistente.getPrecoItem());
+        return itemExistente;
     }
 }

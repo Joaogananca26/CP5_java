@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.UUID;
 
@@ -16,10 +18,9 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Item {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id_item")
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID idItem;
+    private String idItem;
 
     @Column(name = "nome_item", nullable = false, length = 50)
     private String nomeItem;

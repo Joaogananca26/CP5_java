@@ -11,7 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class ItemResponse {
 
-    private UUID idItem;
+    private String idItem;
     private String nomeItem;
     private String tipoItem;
     private String classificacaoItem;
