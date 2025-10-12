@@ -14,12 +14,10 @@
         <a class="btn btn-outline-secondary" th:href="@{/itens}">Voltar</a>
     </div>
 
-    <!-- Formulário: note que o alerta de erros está DENTRO do <form> -->
     <form th:action="@{/itens}" th:object="${item}" method="post" class="row g-3">
 
         <input type="hidden" th:if="${_csrf != null}" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
-        <!-- Alerta global de validação (agora dentro do th:object) -->
         <div class="col-12" th:if="${#fields.hasAnyErrors()}">
             <div class="alert alert-danger mb-0">Verifique os campos destacados abaixo.</div>
         </div>
@@ -46,7 +44,6 @@
                    th:classappend="${#fields.hasErrors('classificacaoItem')} ? ' is-invalid'"
                    th:field="*{classificacaoItem}" placeholder="Ex.: GL AZ150 / GI Z275 / PPGI" />
             <div class="invalid-feedback" th:errors="*{classificacaoItem}">Mensagem de erro</div>
-            <div class="help">Opcional. Use a notação técnica se houver.</div>
         </div>
 
         <div class="col-md-3">
