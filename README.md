@@ -4,3 +4,9 @@ Dependências adicionadas pois foram esquecidas no spring initializr:
 Oracle
 JPA
 Validation
+
+
+
+Conta ADMIN do projeto:
+email: roberto@gmail.com 
+senha: roberto
