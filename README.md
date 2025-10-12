@@ -8,5 +8,5 @@ Validation
 
 
 Conta ADMIN do projeto:
-email: roberto@gmail.com 
-senha: roberto
+email: admin@gmail.com 
+senha: admin123
