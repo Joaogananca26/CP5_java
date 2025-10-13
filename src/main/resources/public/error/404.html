@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 — Página não encontrada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" th:href="@{/css/erros.css}" href="/css/erros.css" />
+</head>
+<body>
+<main class="wrap">
+  <section class="card">
+    <h1 class="code">404</h1>
+    <h2>Página não encontrada</h2>
+    <p>O recurso que você procura pode ter sido movido ou não existe.</p>
+    <div class="actions">
+      <a class="btn" href="javascript:history.back()">Voltar</a>
+      <a class="btn primary" th:href="@{/itens}" href="/itens">Home</a>
+    </div>
+  </section>
+</main>
+</body>
+</html>

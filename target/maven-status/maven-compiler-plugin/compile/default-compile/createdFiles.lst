@@ -1,0 +1,15 @@
+br\com\fiap\CP5\service\UserAccountService.class
+br\com\fiap\CP5\entity\UserAccount$UserAccountBuilder.class
+br\com\fiap\CP5\entity\UserAccount.class
+br\com\fiap\CP5\entity\Item$ItemBuilder.class
+br\com\fiap\CP5\controller\AuthController.class
+br\com\fiap\CP5\config\SecurityConfig.class
+br\com\fiap\CP5\dto\response\ItemResponse.class
+br\com\fiap\CP5\controller\ItemControllerView.class
+br\com\fiap\CP5\Cp5Application.class
+br\com\fiap\CP5\entity\Item.class
+br\com\fiap\CP5\repository\UserAccountRepository.class
+br\com\fiap\CP5\exception\ItemNaoEncontradoException.class
+br\com\fiap\CP5\repository\ItemRepository.class
+br\com\fiap\CP5\service\ItemService.class
+br\com\fiap\CP5\dto\request\ItemRequest.class

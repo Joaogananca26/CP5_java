@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Editar Item</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" th:href="@{/css/item.css}"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="h3 m-0">Editar Item</h1>
+        <a class="btn btn-outline-secondary" th:href="@{/itens}">Voltar</a>
+    </div>
+
+    <form th:action="@{/itens/{id}(id=${itemId})}" th:object="${item}" method="post" class="row g-3">
+
+        <input type="hidden" th:if="${_csrf != null}" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+        <div class="col-12" th:if="${#fields.hasAnyErrors()}">
+            <div class="alert alert-danger mb-0">Verifique os campos destacados abaixo.</div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="nomeItem" class="form-label">Nome <span class="req">*</span></label>
+            <input id="nomeItem" type="text" class="form-control"
+                   th:classappend="${#fields.hasErrors('nomeItem')} ? ' is-invalid'"
+                   th:field="*{nomeItem}" placeholder="Ex.: Galvalume AZ150 0,50mm" required />
+            <div class="invalid-feedback" th:errors="*{nomeItem}">Mensagem de erro</div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="tipoItem" class="form-label">Tipo <span class="req">*</span></label>
+            <input id="tipoItem" type="text" class="form-control"
+                   th:classappend="${#fields.hasErrors('tipoItem')} ? ' is-invalid'"
+                   th:field="*{tipoItem}" placeholder="Ex.: Bobina / Chapa / Acessório" required />
+            <div class="invalid-feedback" th:errors="*{tipoItem}">Mensagem de erro</div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="classificacaoItem" class="form-label">Classificação</label>
+            <input id="classificacaoItem" type="text" class="form-control"
+                   th:classappend="${#fields.hasErrors('classificacaoItem')} ? ' is-invalid'"
+                   th:field="*{classificacaoItem}" placeholder="Ex.: GL AZ150 / GI Z275 / PPGI" />
+            <div class="invalid-feedback" th:errors="*{classificacaoItem}">Mensagem de erro</div>
+            <div class="help">Opcional. Use a notação técnica se houver.</div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="tamanhoItem" class="form-label">Tamanho</label>
+            <input id="tamanhoItem" type="text" class="form-control"
+                   th:classappend="${#fields.hasErrors('tamanhoItem')} ? ' is-invalid'"
+                   th:field="*{tamanhoItem}" placeholder="Ex.: 0,50 x 1200 mm" />
+            <div class="invalid-feedback" th:errors="*{tamanhoItem}">Mensagem de erro</div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="precoItem" class="form-label">Preço (R$) <span class="req">*</span></label>
+            <input id="precoItem" type="number" step="0.01" min="0" class="form-control"
+                   th:classappend="${#fields.hasErrors('precoItem')} ? ' is-invalid'"
+                   th:field="*{precoItem}" placeholder="Ex.: 199.90" required />
+            <div class="invalid-feedback" th:errors="*{precoItem}">Mensagem de erro</div>
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Salvar alterações</button>
+            <a class="btn btn-outline-secondary" th:href="@{/itens}">Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

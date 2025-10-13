@@ -1,0 +1,13 @@
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\config\SecurityConfig.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\controller\AuthController.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\controller\ItemControllerView.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\Cp5Application.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\dto\request\ItemRequest.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\dto\response\ItemResponse.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\entity\Item.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\entity\UserAccount.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\exception\ItemNaoEncontradoException.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\repository\ItemRepository.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\repository\UserAccountRepository.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\service\ItemService.java
+C:\Users\joaog\IdeaProjects\CP5_java\CP5\src\main\java\br\com\fiap\CP5\service\UserAccountService.java
