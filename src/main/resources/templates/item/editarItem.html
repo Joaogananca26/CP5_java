@@ -44,7 +44,6 @@
                    th:classappend="${#fields.hasErrors('classificacaoItem')} ? ' is-invalid'"
                    th:field="*{classificacaoItem}" placeholder="Ex.: GL AZ150 / GI Z275 / PPGI" />
             <div class="invalid-feedback" th:errors="*{classificacaoItem}">Mensagem de erro</div>
-            <div class="help">Opcional. Use a notação técnica se houver.</div>
         </div>
 
         <div class="col-md-3">
