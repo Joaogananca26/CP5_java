@@ -1,10 +1,56 @@
-# Participantes
-## Brendon de Paula Brasil - RM559196
-## Vinicius Leandro - RM554728
-## João Ganança - RM556405
-## David Gomes - RM556607
+# 🏪 Loja Java – Sistema de Cadastro e Gerenciamento de Itens
+
+Aplicação web desenvolvida em **Java (Spring Boot)** para gerenciamento de itens de uma loja, com autenticação de usuários e controle de acesso baseado em papéis (**usuário comum** e **administrador**).
+
+## Participantes
+### Brendon de Paula Brasil - RM559196
+### Vinicius Leandro - RM554728
+### João Ganança - RM556405
+### David Gomes - RM556607
 
 --------------------------------------------
+
+## ⚙️ Funcionalidades
+
+### 👤 Usuário Comum
+- Pode **criar conta** informando:
+  - Nome completo
+  - E-mail
+  - Telefone
+  - Senha
+- Pode **fazer login**
+- Pode **criar novos itens** com:
+  - Nome do item (ex: Martelo)
+  - Tipo (ex: Ferramenta)
+  - Classificação (ex: Material de construção)
+  - Tamanho
+  - Valor
+- Pode **visualizar todos os itens** cadastrados na homepage
+- Caso tente editar ou excluir, recebe **Erro 403 – Acesso negado**
+
+### 🛠️ Administrador
+- Faz login com:
+- E-mail: admin@gmail.com
+- Senha: admin123
+- Pode **editar** e **excluir** qualquer item
+- Também pode criar novos itens
+
+---
+
+## 💻 Tecnologias Utilizadas
+
+- **Java 21**
+- **Spring Boot**
+- **Spring Security**
+- **Thymeleaf**
+- **Oraclee**
+- **HTML/CSS personalizado**
+- **Maven**
+- **Render** (Deploy da aplicação)
+- **JPA**
+- **Validation**
+
+---
 
 Spring initializr do projeto 
 <img width="1914" height="905" alt="image" src="https://github.com/user-attachments/assets/7b25d8be-5ed9-4ded-8cb7-3c2b17775084" />
